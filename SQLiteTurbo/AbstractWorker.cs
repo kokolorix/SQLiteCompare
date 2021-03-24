@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
-using log4net;
 using Common;
 
 namespace SQLiteTurbo
@@ -48,12 +47,10 @@ namespace SQLiteTurbo
                 }
                 catch (UserCancellationException cex)
                 {
-                    _log.Debug("The user chose to cancel the operation");
                     NotifyPrimaryProgress(true, 100, null, cex);
                 }
                 catch (Exception ex)
                 {
-                    _log.Error("operation failed", ex);
                     NotifyPrimaryProgress(true, 100, null, ex);
                 } // catch
             };
@@ -187,7 +184,6 @@ namespace SQLiteTurbo
         private Thread _worker;
         private object _result;
         private string _workerName;
-        private ILog _log = LogManager.GetLogger(typeof(CompareWorker));
         #endregion
     }
 }

@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using SQLiteParser;
 using Common;
 using AutomaticUpdates;
-using log4net;
 
 namespace SQLiteTurbo
 {
@@ -355,7 +354,6 @@ namespace SQLiteTurbo
                     }
                     catch (Exception ex)
                     {
-                        _log.Warn("failed to check for software updates", ex);
                     } // catch
                     finally
                     {
@@ -386,7 +384,6 @@ namespace SQLiteTurbo
         private CompareParams _compareParams = null;
         private string _leftdb;
         private string _rightdb;
-        private ILog _log = LogManager.GetLogger(typeof(MainForm));
         private Dictionary<SchemaObject, List<SchemaComparisonItem>> _results;
         private Dictionary<SchemaObject, Dictionary<string, SQLiteDdlStatement>> _leftSchema;
         private Dictionary<SchemaObject, Dictionary<string, SQLiteDdlStatement>> _rightSchema;

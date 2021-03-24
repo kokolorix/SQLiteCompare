@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Data.SQLite;
-using log4net;
 using SQLiteParser;
 using Common;
 
@@ -83,7 +82,6 @@ namespace SQLiteTurbo
                 }
                 catch (UserCancellationException cex)
                 {
-                    _log.Debug("The user chose to cancel a compare operation");
                     if (_result != null)
                     {
                         _result.Dispose();
@@ -93,7 +91,6 @@ namespace SQLiteTurbo
                 }
                 catch (Exception ex)
                 {
-                    _log.Error("failed to compare databases", ex);
                     if (_result != null)
                     {
                         _result.Dispose();
@@ -1011,7 +1008,6 @@ namespace SQLiteTurbo
         /// </summary>
         private void DumpCommand(SQLiteCommand cmd)
         {
-            _log.Debug("SQL-COMMAND: " + cmd.CommandText);
             foreach (SQLiteParameter p in cmd.Parameters)
             {
                 string valstr = "NULL";
@@ -1021,7 +1017,6 @@ namespace SQLiteTurbo
                     if (valstr == string.Empty)
                         System.Diagnostics.Debugger.Break();
                 }
-                _log.Debug("PARAM [" + p.ParameterName + "]: " + valstr);
             } // foreach
         }
 
@@ -1122,7 +1117,6 @@ namespace SQLiteTurbo
         private bool _compareBlobs = false;
         private Thread _worker;
         private TableChanges _result;
-        private ILog _log = LogManager.GetLogger(typeof(TableCompareWorker));
         #endregion
     }
 }

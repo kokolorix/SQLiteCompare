@@ -6,7 +6,6 @@ using System.Threading;
 using System.ComponentModel;
 using System.Data.SQLite;
 using SQLiteParser;
-using log4net;
 using Common;
 
 namespace SQLiteTurbo
@@ -76,14 +75,12 @@ namespace SQLiteTurbo
                 }
                 catch (UserCancellationException cex)
                 {
-                    _log.Debug("The user chose to cancel a compare operation");
                     if (_result != null)
                         CleanupTempFiles(_result);
                     NotifyPrimaryProgress(true, 100, cex);
                 }
                 catch (Exception ex)
                 {
-                    _log.Error("failed to compare databases", ex);
                     if (_result != null)
                         CleanupTempFiles(_result);
                     NotifyPrimaryProgress(true, 100, ex);
@@ -101,7 +98,6 @@ namespace SQLiteTurbo
         /// </summary>
         public void Cancel()
         {
-            _log.Debug("CompareWorker.Cancel called");
             _cancelled = true;
             IWorker comparer = _tableComparer;
             if (comparer != null)
@@ -420,7 +416,6 @@ namespace SQLiteTurbo
             _pevent.Message = msg;
             _pevent.Error = null;
 
-            _log.Debug("CompareWorker.NotifyPrimaryProgress(" + done + "," + progress + "," + msg + ")");
             if (ProgressChanged != null)
                 ProgressChanged(this, _pevent);
         }
@@ -432,7 +427,6 @@ namespace SQLiteTurbo
             _pevent.Message = null;
             _pevent.Error = error;
 
-            _log.Debug("CompareWorker.NotifyPrimaryProgress(" + done + "," + progress + ",E:"+error.Message + ")");
             if (ProgressChanged != null)
                 ProgressChanged(this, _pevent);
         }
@@ -472,7 +466,6 @@ namespace SQLiteTurbo
         private Dictionary<string, TableChanges> _tchanges;
         private Dictionary<SchemaObject, Dictionary<string, SQLiteDdlStatement>> _leftSchema;
         private Dictionary<SchemaObject, Dictionary<string, SQLiteDdlStatement>> _rightSchema;
-        private ILog _log = LogManager.GetLogger(typeof(CompareWorker));
         #endregion
     }
 

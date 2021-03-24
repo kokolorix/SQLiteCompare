@@ -5,7 +5,6 @@ using System.Threading;
 using System.Data;
 using System.Data.SQLite;
 using SQLiteParser;
-using log4net;
 
 namespace SQLiteTurbo
 {
@@ -1015,7 +1014,6 @@ namespace SQLiteTurbo
         private Parser _parser = new Parser();
         private Dictionary<SchemaObject, Dictionary<string, SQLiteDdlStatement>> _leftSchema;
         private Dictionary<SchemaObject, Dictionary<string, SQLiteDdlStatement>> _rightSchema;
-        private ILog _log = LogManager.GetLogger(typeof(SchemaObjectUpdater));
         #endregion
     }
 

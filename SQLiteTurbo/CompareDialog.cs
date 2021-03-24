@@ -264,7 +264,7 @@ namespace SQLiteTurbo
             dlg.AddExtension = true;
             dlg.DefaultExt = "db";
             dlg.FileName = string.Empty;
-            dlg.Filter = "SQLite files|*.db;*.db3;*.sqlite|All files|*.*";
+            dlg.Filter = "SQLite files|*.db;*.s3db;*.db3;*.sqlite|All files|*.*";
             DialogResult res = dlg.ShowDialog(this);
             if (res == DialogResult.Cancel)
                 return;

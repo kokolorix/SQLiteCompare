@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using log4net;
 using Common;
 
 namespace SQLiteTurbo
@@ -135,9 +134,7 @@ namespace SQLiteTurbo
                     _result = null;
                     _closed = true;
 
-                    _log.Debug("Closing the progress dialog...");
                     this.Close();
-                    _log.Debug("Closed the progress dialog.");
                 }
                 else
                 {
@@ -163,9 +160,7 @@ namespace SQLiteTurbo
                         _result = _worker.Result;
                         _closed = true;
 
-                        _log.Debug("Closing the progress dialog...");
                         this.Close();
-                        _log.Debug("Closed the progress dialog.");
                     }
                 } // else
             } // else
@@ -177,7 +172,6 @@ namespace SQLiteTurbo
         private IWorker _worker = null;
         private object _result = null;
         private Exception _error = null;
-        private ILog _log = LogManager.GetLogger(typeof(ProgressDialog));
         #endregion
     }
 }

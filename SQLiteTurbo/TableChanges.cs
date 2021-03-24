@@ -8,7 +8,6 @@ using System.Data;
 using System.Data.SQLite;
 using System.Threading;
 using SQLiteParser;
-using log4net;
 using Common;
 
 namespace SQLiteTurbo
@@ -1050,7 +1049,6 @@ namespace SQLiteTurbo
                         }
                         catch (Exception ex)
                         {
-                            _log.Error("error occured while cleaning table changes database", ex);
                             throw;
                         } // catch
                     }
@@ -2065,7 +2063,6 @@ namespace SQLiteTurbo
         private bool _precise = true;
         private static Regex _tchangeRx = new Regex(@"_G_([0-9A-Fa-f_]+)_G_");
         private static List<TableChanges> _activeChanges = new List<TableChanges>();
-        private ILog _log = LogManager.GetLogger(typeof(TableChanges));
 
         private string _cachediff;
         private long _cacheOffset;

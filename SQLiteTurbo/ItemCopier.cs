@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data.SQLite;
 using SQLiteParser;
-using log4net;
 using Common;
 
 namespace SQLiteTurbo
@@ -71,12 +70,10 @@ namespace SQLiteTurbo
                 }
                 catch (UserCancellationException cex)
                 {
-                    _log.Debug("The user chose to cancel the operation");
                     NotifyPrimaryProgress(true, 100, cex);
                 }
                 catch (Exception ex)
                 {
-                    _log.Error("failed to copy item", ex);
                     NotifyPrimaryProgress(true, 100, ex);
                 } // catch
             };
@@ -795,7 +792,6 @@ namespace SQLiteTurbo
         private string _leftdb;
         private string _rightdb;
         private bool _leftToRight;
-        private static ILog _log = LogManager.GetLogger(typeof(ItemCopier));
         #endregion
     }
 }

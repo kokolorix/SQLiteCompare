@@ -54,10 +54,6 @@
     <NoWarn>0168;0169;0414;0649;0618</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="Puzzle.SyntaxBox.NET3.5, Version=1.4.10.17604, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Puzzle.SyntaxBox.NET3.5.dll</HintPath>
@@ -168,7 +164,6 @@
     <Compile Include="LicenseRegistrationDialog.Designer.cs">
       <DependentUpon>LicenseRegistrationDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="LocalUserFileAppender.cs" />
     <Compile Include="MailSender.cs" />
     <Compile Include="PostSubmitter.cs" />
     <Compile Include="ProgressDialog.cs">

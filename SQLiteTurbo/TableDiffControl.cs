@@ -8,7 +8,6 @@ using System.Text;
 using System.Windows.Forms;
 using SQLiteParser;
 using FastGridApp;
-using log4net;
 
 namespace SQLiteTurbo
 {
@@ -694,7 +693,6 @@ namespace SQLiteTurbo
                 }
                 catch (Exception ex)
                 {
-                    _log.Error("Failed to set column field", ex);
                     MessageBox.Show(this, ex.Message, "Operation Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 } // catch
             } // else
@@ -1019,7 +1017,6 @@ namespace SQLiteTurbo
         private TableChanges _tableChanges;
         private FastGrid _lastFocusedGrid;
         private SearchDataRowsDialog _searchDialog;
-        private ILog _log = LogManager.GetLogger(typeof(TableDiffControl));
         #endregion
     }
 }

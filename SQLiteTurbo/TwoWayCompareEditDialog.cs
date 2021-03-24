@@ -7,7 +7,6 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using SQLiteParser;
-using log4net;
 using Common;
 
 namespace SQLiteTurbo
@@ -472,7 +471,6 @@ namespace SQLiteTurbo
         private Dictionary<SchemaObject, Dictionary<string, SQLiteDdlStatement>> _rightSchema;
         private Font _italic;
         private Regex _nlrx = new Regex("\r\n|\n");
-        private ILog _log = LogManager.GetLogger(typeof(TwoWayCompareEditDialog));
         #endregion
     }
 }
