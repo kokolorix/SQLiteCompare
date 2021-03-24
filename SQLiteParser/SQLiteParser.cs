@@ -3,10 +3,10 @@
 // (see accompanying GPPGcopyright.rtf)
 
 // GPPG version 1.3.1.136 (2008-11-11)
-// Machine:  LIRONPC
-// DateTime: 06/07/2011 21:28:58
-// UserName: liron
-// Input file <C:\tmp\SQLiteCompare_src\SQLiteCompare\SQLiteParser\sqlite.y>
+// Machine:  PAPS-PC
+// DateTime: 24.03.2021 20:16:56
+// UserName: srebe
+// Input file <D:\srebe\Desktop\SQLiteCompare\SQLiteParser\sqlite.y>
 
 // options: conflicts no-lines gplex conflicts
 
