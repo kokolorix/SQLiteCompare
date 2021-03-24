@@ -163,6 +163,11 @@ namespace SQLiteTurbo
                 // Check for software updates if necessary
                 CheckSoftwareUpdates();
             }
+
+            if(null != _compareParams)
+            {
+                RefreshComparison(true);
+            }
         }
 
         private void mniProductWebsite_Click(object sender, EventArgs e)
@@ -210,6 +215,11 @@ namespace SQLiteTurbo
         private void UpdateTitle()
         {
             this.Text = "SQLite Compare";
+        }
+
+        public void setFiles(string left, string right)
+        {
+            _compareParams = new CompareParams(left, right, ComparisonType.CompareSchemaAndData, true);
         }
 
         /// <summary>

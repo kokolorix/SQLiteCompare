@@ -17,7 +17,7 @@ namespace SQLiteTurbo
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
             try
             {
@@ -50,7 +50,10 @@ namespace SQLiteTurbo
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                _mainForm = new MainForm();
+                MainForm mf =  new MainForm();
+                if(args.Length > 1)
+                    mf.setFiles(args[0], args[1]);
+                _mainForm = mf;
                 Application.Run(_mainForm);
                 _mainForm = null;
             }
